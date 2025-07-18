@@ -1,6 +1,6 @@
 import { atom, getDefaultStore } from "jotai";
-import { createUniqueId } from "utils";
 import type { Message, NewMessage, Options } from "./types";
+import { createUniqueId } from "./utils";
 
 const _defaultOptions: Options = {
   duration: 3000,
