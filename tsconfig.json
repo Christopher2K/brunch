@@ -3,7 +3,6 @@
   "compilerOptions": {
     "target": "es5",
     "jsx": "preserve",
-    "noLib": true,
     "module": "node16",
     "moduleResolution": "node16",
     "baseUrl": "./src",
