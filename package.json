@@ -1,0 +1,32 @@
+{
+  "name": "@cool/brunch",
+  "version": "0.0.1",
+  "description": "Dead simple snackbar & toast system for React Native, Expo (iOS, Android, Web)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "react",
+    "snackbar",
+    "snack bar",
+    "toast",
+    "notification",
+    "headless",
+    "ios",
+    "android",
+    "mobile",
+    "component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopher2k/brunch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christopher2k/brunch/issues"
+  },
+  "author": "Christopher2k",
+  "license": "MIT",
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
+}
