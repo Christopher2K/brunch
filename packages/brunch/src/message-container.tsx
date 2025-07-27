@@ -1,6 +1,7 @@
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+import Animated, { LinearTransition } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FullWindowOverlay } from "react-native-screens";
 import { MessageItem } from "./message-item";
@@ -36,11 +37,14 @@ export const MessageContainer = () => {
 
   return (
     <FullWindowOverlay>
-      <View style={[styles.viewContainer, positionStyle]}>
+      <Animated.View
+        style={[styles.viewContainer, positionStyle]}
+        layout={LinearTransition}
+      >
         {messages.map((message) => (
           <MessageItem key={message.id} message={message} />
         ))}
-      </View>
+      </Animated.View>
     </FullWindowOverlay>
   );
 };

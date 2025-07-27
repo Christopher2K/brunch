@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 import type { Message, MessageSeverity } from "./types";
 
 const bgColorBySeverity: Record<MessageSeverity, string> = {
@@ -16,7 +17,11 @@ const textColorBySeverity: Record<MessageSeverity, string> = {
 };
 
 const styles = StyleSheet.create({
+  animatedContainer: {
+    width: "100%",
+  },
   container: {
+    width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -50,20 +55,26 @@ export const MessageItem = ({ message }: MessageItemProps) => {
   const color = textColorBySeverity[message.severity];
 
   return (
-    <View style={[styles.container, { backgroundColor }]}>
-      <View style={[styles.textContainer]}>
-        <Text style={[styles.title, { color }]}>{message.title}</Text>
-        <Text style={[styles.description, { color }]}>
-          {message.description}
-        </Text>
-      </View>
-      {message.action && (
-        <TouchableOpacity onPress={() => message.action?.onPress(message)}>
-          <Text style={[styles.actionText, { color }]}>
-            {message.action.label}
+    <Animated.View
+      style={styles.animatedContainer}
+      entering={FadeInUp}
+      exiting={FadeOutUp}
+    >
+      <View style={[styles.container, { backgroundColor }]}>
+        <View style={[styles.textContainer]}>
+          <Text style={[styles.title, { color }]}>{message.title}</Text>
+          <Text style={[styles.description, { color }]}>
+            {message.description}
           </Text>
-        </TouchableOpacity>
-      )}
-    </View>
+        </View>
+        {message.action && (
+          <TouchableOpacity onPress={() => message.action?.onPress(message)}>
+            <Text style={[styles.actionText, { color }]}>
+              {message.action.label}
+            </Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    </Animated.View>
   );
 };
