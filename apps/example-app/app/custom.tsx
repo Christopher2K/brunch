@@ -3,7 +3,7 @@ import { Button, Text, View } from "react-native";
 
 export default function Custom() {
   return (
-    <MessageProvider>
+    <MessageProvider customUI>
       <Demo />
     </MessageProvider>
   );

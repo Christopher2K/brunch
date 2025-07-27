@@ -1,6 +1,6 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { type PropsWithChildren, useEffect, useMemo } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { MessageContainer } from "./message-container";
 import {
   clearMessages,
   closeMessage,
@@ -11,9 +11,11 @@ import {
 import type { Message, NewMessage, Options } from "./types";
 
 type MessageProviderProps = PropsWithChildren<{
+  customUI?: boolean;
   options?: Options;
 }>;
 export const MessageProvider = ({
+  customUI = false,
   children,
   options,
 }: MessageProviderProps) => {
@@ -29,7 +31,12 @@ export const MessageProvider = ({
     }
   }, []);
 
-  return <>{children}</>;
+  return (
+    <>
+      {!customUI && <MessageContainer />}
+      {children}
+    </>
+  );
 };
 
 type UseMessagesReturnType = {

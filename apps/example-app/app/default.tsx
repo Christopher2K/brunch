@@ -1,10 +1,9 @@
-import { MessageContainer, MessageProvider, openMessage } from "@cool/brunch";
-import { Button, Text, View } from "react-native";
+import { MessageProvider, openMessage } from "@cool/brunch";
+import { Button, View } from "react-native";
 
 export default function Default() {
   return (
     <MessageProvider options={{ position: "bottom" }}>
-      <MessageContainer />
       <Demo />
     </MessageProvider>
   );
