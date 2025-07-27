@@ -1,5 +1,6 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import { type PropsWithChildren, useEffect, useMemo } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
   clearMessages,
   closeMessage,
@@ -21,7 +22,10 @@ export const MessageProvider = ({
   // biome-ignore lint/correctness/useExhaustiveDependencies: We want to initialize this just ONCE and not update it
   useEffect(() => {
     if (options) {
-      setOptions(options);
+      setOptions((base) => ({
+        ...base,
+        ...options,
+      }));
     }
   }, []);
 

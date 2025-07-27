@@ -4,6 +4,7 @@ import { createUniqueId } from "./utils";
 
 const _defaultOptions: Options = {
   duration: 3000,
+  position: "top",
 };
 
 const store = getDefaultStore();

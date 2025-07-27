@@ -1,52 +1,15 @@
 {
-  "name": "@cool/brunch",
-  "version": "0.0.1",
-  "description": "Dead simple snackbar & toast system for React Native, Expo (iOS, Android, Web)",
-  "main": "./src/index.ts",
+  "name": "brunch-monorepo",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "lint": "biome check",
-    "format": "biome check --write",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "brunch:dev": "pnpm --filter @cool/brunch dev",
+    "brunch:lint": "pnpm --filter @cool/brunch lint",
+    "brunch:format": "pnpm --filter @cool/brunch format",
+    "app:dev": "pnpm --filter @cool/brunch/example-app dev"
   },
-  "keywords": [
-    "react-native",
-    "expo",
-    "react",
-    "snackbar",
-    "snack bar",
-    "toast",
-    "notification",
-    "headless",
-    "ios",
-    "android",
-    "mobile",
-    "component"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/christopher2k/brunch.git"
-  },
-  "bugs": {
-    "url": "https://github.com/christopher2k/brunch/issues"
-  },
-  "author": "Christopher2k",
-  "license": "MIT",
-  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
   "devDependencies": {
     "@biomejs/biome": "~2.1.2",
-    "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*",
-    "react-native-gesture-handler": "*"
-  },
-  "dependencies": {
-    "jotai": "~2.12.5",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.5",
-    "react-native-gesture-handler": "2.24.0"
   }
 }
