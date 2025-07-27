@@ -1,8 +1,9 @@
-import { useMessages } from "@cool/brunch";
+import { openMessage, useMessages } from "@cool/brunch";
 import { Button, Text, View } from "react-native";
 
 export const SnackbarContainer = () => {
-  const { messages, openMessage } = useMessages();
+  const { messages } = useMessages();
+
   return (
     <View>
       <Button
@@ -11,7 +12,7 @@ export const SnackbarContainer = () => {
           openMessage({
             title: "Hello World",
             severity: "info",
-            description: "This is a test",
+            description: "This is a test!!!!",
           })
         }
       />

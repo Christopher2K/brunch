@@ -1,5 +1,8 @@
+export type MessageContainerPosition = "top" | "bottom";
+
 export type Options = {
   duration?: number;
+  position?: MessageContainerPosition;
 };
 
 export type MessageSeverity = "info" | "warning" | "error" | "success";
