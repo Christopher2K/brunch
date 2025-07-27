@@ -1,8 +1,9 @@
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FullWindowOverlay } from "react-native-screens";
+import { MessageItem } from "./message-item";
 import { messagesAtom, optionsAtom } from "./message-store";
 
 const styles = StyleSheet.create({
@@ -11,6 +12,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     width: "100%",
+    paddingHorizontal: 16,
+    gap: 8,
   },
 });
 
@@ -35,10 +38,7 @@ export const MessageContainer = () => {
     <FullWindowOverlay>
       <View style={[styles.viewContainer, positionStyle]}>
         {messages.map((message) => (
-          <View key={message.id}>
-            <Text>{message.id}</Text>
-            <Text>{message.title}</Text>
-          </View>
+          <MessageItem key={message.id} message={message} />
         ))}
       </View>
     </FullWindowOverlay>
