@@ -1,7 +1,7 @@
 {
   "name": "@cool/brunch",
-  "version": "0.0.1",
-  "description": "Dead simple snackbar & toast system for React Native, Expo (iOS, Android, Web)",
+  "version": "1.0.0-alpha.0",
+  "description": "Dead simple message system for React Native, Expo (iOS, Android, Web)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
