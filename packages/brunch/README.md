@@ -19,12 +19,24 @@ Dead simple message system for React Native and Expo (iOS, Android, Web)
 ## Installation
 
 ```bash
-npm install @coolstack/brunch
+npm install @coolstack/brunch jotai react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context
 # or
-yarn add @coolstack/brunch
+yarn add @coolstack/brunch jotai react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context
 # or
-pnpm add @coolstack/brunch
+pnpm add @coolstack/brunch jotai react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context
 ```
+
+### Additional Setup
+
+Some peer dependencies require additional setup:
+
+**react-native-reanimated**: Follow the [installation guide](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/)
+
+**react-native-gesture-handler**: Follow the [installation guide](https://docs.swmansion.com/react-native-gesture-handler/docs/fundamentals/installation)
+
+**react-native-screens**: Follow the [installation guide](https://reactnavigation.org/docs/getting-started/#installing-dependencies-into-a-bare-react-native-project)
+
+> For Expo projects, these dependencies are typically already included. You may only need to install `jotai`.
 
 ## Usage
 

@@ -87,27 +87,12 @@ importers:
 
   packages/brunch:
     dependencies:
-      jotai:
-        specifier: ~2.12.5
-        version: 2.12.5(@types/react@19.0.14)(react@19.0.0)
       react:
         specifier: '*'
         version: 19.0.0
       react-native:
         specifier: '*'
         version: 0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0)
-      react-native-gesture-handler:
-        specifier: '*'
-        version: 2.24.0(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
-      react-native-reanimated:
-        specifier: '*'
-        version: 3.17.5(@babel/core@7.28.0)(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
-      react-native-safe-area-context:
-        specifier: '*'
-        version: 5.4.0(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
-      react-native-screens:
-        specifier: '*'
-        version: 4.11.1(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
     devDependencies:
       '@biomejs/biome':
         specifier: ~2.1.2
@@ -115,6 +100,21 @@ importers:
       '@types/react':
         specifier: ~19.0.10
         version: 19.0.14
+      jotai:
+        specifier: ^2.15.1
+        version: 2.15.1(@babel/core@7.28.0)(@babel/template@7.27.2)(@types/react@19.0.14)(react@19.0.0)
+      react-native-gesture-handler:
+        specifier: ~2.24.0
+        version: 2.24.0(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      react-native-reanimated:
+        specifier: ~3.17.5
+        version: 3.17.5(@babel/core@7.28.0)(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      react-native-safe-area-context:
+        specifier: 5.4.0
+        version: 5.4.0(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      react-native-screens:
+        specifier: ~4.11.1
+        version: 4.11.1(react-native@0.79.5(@babel/core@7.28.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
@@ -1850,13 +1850,19 @@ packages:
   jimp-compact@0.16.1:
     resolution: {integrity: sha512-dZ6Ra7u1G8c4Letq/B5EzAxj4tLFHL+cGtdpR+PVm4yzPDj+lCk+AbivWt1eOM+ikzkowtyV7qSqX6qr3t71Ww==}
 
-  jotai@2.12.5:
-    resolution: {integrity: sha512-G8m32HW3lSmcz/4mbqx0hgJIQ0ekndKWiYP7kWVKi0p6saLXdSoye+FZiOFyonnd7Q482LCzm8sMDl7Ar1NWDw==}
+  jotai@2.15.1:
+    resolution: {integrity: sha512-yHT1HAZ3ba2Q8wgaUQ+xfBzEtcS8ie687I8XVCBinfg4bNniyqLIN+utPXWKQE93LMF5fPbQSVRZqgpcN5yd6Q==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
+      '@babel/core': '>=7.0.0'
+      '@babel/template': '>=7.0.0'
       '@types/react': '>=17.0.0'
       react: '>=17.0.0'
     peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
       '@types/react':
         optional: true
       react:
@@ -5174,8 +5180,10 @@ snapshots:
 
   jimp-compact@0.16.1: {}
 
-  jotai@2.12.5(@types/react@19.0.14)(react@19.0.0):
+  jotai@2.15.1(@babel/core@7.28.0)(@babel/template@7.27.2)(@types/react@19.0.14)(react@19.0.0):
     optionalDependencies:
+      '@babel/core': 7.28.0
+      '@babel/template': 7.27.2
       '@types/react': 19.0.14
       react: 19.0.0
 

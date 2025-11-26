@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "README.md",
     "dist",
     "LICENSE"
   ],
@@ -41,17 +42,20 @@
   "devDependencies": {
     "@biomejs/biome": "~2.1.2",
     "@types/react": "~19.0.10",
+    "jotai": "^2.15.1",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-reanimated": "~3.17.5",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1",
     "typescript": "~5.8.3"
   },
   "peerDependencies": {
+    "jotai": ">=2.0.0",
     "react": "*",
     "react-native": "*",
     "react-native-gesture-handler": "*",
-    "react-native-screens": "*",
+    "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
-    "react-native-reanimated": "*"
-  },
-  "dependencies": {
-    "jotai": "~2.12.5"
+    "react-native-screens": "*"
   }
 }
