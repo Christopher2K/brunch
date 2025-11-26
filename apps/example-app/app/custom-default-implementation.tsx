@@ -1,4 +1,4 @@
-import { MessageProvider, openMessage } from "@cool/brunch";
+import { MessageProvider, openMessage } from "@coolstack/brunch";
 import { Button, View } from "react-native";
 
 export default function Default() {

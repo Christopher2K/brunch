@@ -1,9 +1,13 @@
 {
-  "name": "@cool/brunch",
+  "name": "@coolstack/brunch",
   "version": "1.0.0-alpha.0",
   "description": "Dead simple message system for React Native, Expo (iOS, Android, Web)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "scripts": {
     "lint": "biome check",
     "format": "biome check --write",

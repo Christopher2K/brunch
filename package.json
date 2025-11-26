@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "brunch:dev": "pnpm --filter @cool/brunch dev",
-    "brunch:lint": "pnpm --filter @cool/brunch lint",
-    "brunch:format": "pnpm --filter @cool/brunch format",
-    "brunch:build": "pnpm --filter @cool/brunch build",
-    "app:dev": "pnpm --filter @cool/brunch/example-app dev"
+    "brunch:dev": "pnpm --filter @coolstack/brunch dev",
+    "brunch:lint": "pnpm --filter @coolstack/brunch lint",
+    "brunch:format": "pnpm --filter @coolstack/brunch format",
+    "brunch:build": "pnpm --filter @coolstack/brunch build",
+    "app:dev": "pnpm --filter @coolstack/example-app dev"
   },
   "devDependencies": {
     "@biomejs/biome": "~2.1.2",

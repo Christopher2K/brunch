@@ -5,7 +5,6 @@
     "allowSyntheticDefaultImports": false,
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
