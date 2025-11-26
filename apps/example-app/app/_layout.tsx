@@ -1,5 +1,4 @@
 import { Stack } from "expo-router";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
@@ -11,12 +10,12 @@ export default function RootLayout() {
         options={{ title: "Default implementation" }}
       />
       <Stack.Screen
-        name="custom"
-        options={{ title: "Custom implementation" }}
+        name="custom-default-implementation"
+        options={{ title: "Customize the default implementation" }}
       />
       <Stack.Screen
-        name="modal"
-        options={{ title: "With a native modal", presentation: "modal" }}
+        name="custom"
+        options={{ title: "Total custom implementation" }}
       />
     </Stack>
   );

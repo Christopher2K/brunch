@@ -6,6 +6,16 @@ export default function Default() {
     <MessageProvider
       options={{
         position: "bottom",
+        messagesContainerStyle: {
+          width: "50%",
+        },
+        messageContainerStyle: ({ messageSeverity }) => ({
+          borderWidth: 2,
+          borderColor: messageSeverity === "error" ? "red" : "green",
+        }),
+        messageTitleStyle: ({ messageSeverity }) => ({
+          color: messageSeverity === "info" ? "blue" : "red",
+        }),
       }}
     >
       <Demo />

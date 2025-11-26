@@ -21,7 +21,6 @@ export const MessageProvider = ({
 }: MessageProviderProps) => {
   const setOptions = useSetAtom(optionsAtom);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: We want to initialize this just ONCE and not update it
   useEffect(() => {
     if (options) {
       setOptions((base) => ({
@@ -29,7 +28,7 @@ export const MessageProvider = ({
         ...options,
       }));
     }
-  }, []);
+  }, [options, setOptions]);
 
   return (
     <>

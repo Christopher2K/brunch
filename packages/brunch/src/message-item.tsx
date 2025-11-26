@@ -1,6 +1,10 @@
+import { useAtomValue } from "jotai";
+import { useMemo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
+import { optionsAtom } from "./message-store";
 import type { Message, MessageSeverity } from "./types";
+import { extractStyleFromStyleProp } from "./utils";
 
 const bgColorBySeverity: Record<MessageSeverity, string> = {
   success: "#059669",
@@ -46,13 +50,53 @@ const styles = StyleSheet.create({
   },
 });
 
-type MessageItemProps = {
+export type MessageItemProps = {
   message: Message;
 };
 
 export const MessageItem = ({ message }: MessageItemProps) => {
+  const options = useAtomValue(optionsAtom);
   const backgroundColor = bgColorBySeverity[message.severity];
   const color = textColorBySeverity[message.severity];
+
+  const {
+    messageActionTextStyle,
+    messageContainerStyle,
+    messageDescriptionStyle,
+    messageTitleStyle,
+  } = options;
+
+  const computedContainerStyle = useMemo(
+    () =>
+      extractStyleFromStyleProp(messageContainerStyle, {
+        messageSeverity: message.severity,
+      }),
+    [messageContainerStyle, message.severity],
+  );
+
+  const computedTitleStyle = useMemo(
+    () =>
+      extractStyleFromStyleProp(messageTitleStyle, {
+        messageSeverity: message.severity,
+      }),
+    [messageTitleStyle, message.severity],
+  );
+
+  const computedDescriptionStyle = useMemo(
+    () =>
+      extractStyleFromStyleProp(messageDescriptionStyle, {
+        messageSeverity: message.severity,
+      }),
+    [messageDescriptionStyle, message.severity],
+  );
+
+  const computedActionTextStyle = useMemo(
+    () =>
+      extractStyleFromStyleProp(messageActionTextStyle, {
+        messageSeverity: message.severity,
+      }),
+    [messageActionTextStyle, message.severity],
+  );
 
   return (
     <Animated.View
@@ -60,16 +104,24 @@ export const MessageItem = ({ message }: MessageItemProps) => {
       entering={FadeInUp}
       exiting={FadeOutUp}
     >
-      <View style={[styles.container, { backgroundColor }]}>
+      <View
+        style={[styles.container, { backgroundColor }, computedContainerStyle]}
+      >
         <View style={[styles.textContainer]}>
-          <Text style={[styles.title, { color }]}>{message.title}</Text>
-          <Text style={[styles.description, { color }]}>
+          <Text style={[styles.title, { color }, computedTitleStyle]}>
+            {message.title}
+          </Text>
+          <Text
+            style={[styles.description, { color }, computedDescriptionStyle]}
+          >
             {message.description}
           </Text>
         </View>
         {message.action && (
           <TouchableOpacity onPress={() => message.action?.onPress(message)}>
-            <Text style={[styles.actionText, { color }]}>
+            <Text
+              style={[styles.actionText, { color }, computedActionTextStyle]}
+            >
               {message.action.label}
             </Text>
           </TouchableOpacity>

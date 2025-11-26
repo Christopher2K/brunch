@@ -8,10 +8,13 @@ import { MessageItem } from "./message-item";
 import { messagesAtom, optionsAtom } from "./message-store";
 
 const styles = StyleSheet.create({
-  viewContainer: {
+  container: {
     position: "absolute",
     left: 0,
     right: 0,
+    width: "100%",
+  },
+  messageContainer: {
     width: "100%",
     paddingHorizontal: 16,
     gap: 8,
@@ -22,7 +25,7 @@ export const MessageContainer = () => {
   const options = useAtomValue(optionsAtom);
   const messages = useAtomValue(messagesAtom);
 
-  const { position } = options;
+  const { position, messagesContainerStyle } = options;
   const safeAreaInsets = useSafeAreaInsets();
 
   const positionStyle = useMemo(() => {
@@ -38,12 +41,16 @@ export const MessageContainer = () => {
   return (
     <FullWindowOverlay>
       <Animated.View
-        style={[styles.viewContainer, positionStyle]}
+        style={[styles.container, positionStyle]}
         layout={LinearTransition}
       >
-        {messages.map((message) => (
-          <MessageItem key={message.id} message={message} />
-        ))}
+        <Animated.View
+          style={[styles.messageContainer, messagesContainerStyle]}
+        >
+          {messages.map((message) => (
+            <MessageItem key={message.id} message={message} />
+          ))}
+        </Animated.View>
       </Animated.View>
     </FullWindowOverlay>
   );

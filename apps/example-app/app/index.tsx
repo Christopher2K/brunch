@@ -13,7 +13,9 @@ export default function Index() {
 
   const goToCustomMesssageImpementation = () => router.push("/custom");
 
-  const goToiOSModal = () => router.push("/modal");
+  const goToCustomDefaultImplementation = () =>
+    router.push("/custom-default-implementation");
+
   return (
     <ScrollView style={styles.container}>
       <Button
@@ -21,10 +23,13 @@ export default function Index() {
         onPress={goToDefaultMesssageImpementation}
       />
       <Button
+        title="Customize the default implementation"
+        onPress={goToCustomDefaultImplementation}
+      />
+      <Button
         title="Custom message implementation"
         onPress={goToCustomMesssageImpementation}
       />
-      <Button title="With iOS modal" onPress={goToiOSModal} />
     </ScrollView>
   );
 }
