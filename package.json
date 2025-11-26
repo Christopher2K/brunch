@@ -6,6 +6,7 @@
     "brunch:dev": "pnpm --filter @cool/brunch dev",
     "brunch:lint": "pnpm --filter @cool/brunch lint",
     "brunch:format": "pnpm --filter @cool/brunch format",
+    "brunch:build": "pnpm --filter @cool/brunch build",
     "app:dev": "pnpm --filter @cool/brunch/example-app dev"
   },
   "devDependencies": {

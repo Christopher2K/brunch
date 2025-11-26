@@ -2,10 +2,12 @@
   "name": "@cool/brunch",
   "version": "0.0.1",
   "description": "Dead simple snackbar & toast system for React Native, Expo (iOS, Android, Web)",
-  "main": "./src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "biome check",
     "format": "biome check --write",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
