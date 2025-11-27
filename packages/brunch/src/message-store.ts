@@ -3,7 +3,7 @@ import type { Message, NewMessage, Options } from "./types";
 import { createUniqueId } from "./utils";
 
 const _defaultOptions: Options = {
-  duration: 3000,
+  duration: 10000,
   position: "top",
 };
 
