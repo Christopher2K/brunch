@@ -1,7 +1,6 @@
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
 import { optionsAtom } from "./message-store";
 import type { Message, MessageSeverity } from "./types";
 import { extractStyleFromStyleProp } from "./utils";
@@ -99,34 +98,24 @@ export const MessageItem = ({ message }: MessageItemProps) => {
   );
 
   return (
-    <Animated.View
-      style={styles.animatedContainer}
-      entering={FadeInUp}
-      exiting={FadeOutUp}
+    <View
+      style={[styles.container, { backgroundColor }, computedContainerStyle]}
     >
-      <View
-        style={[styles.container, { backgroundColor }, computedContainerStyle]}
-      >
-        <View style={[styles.textContainer]}>
-          <Text style={[styles.title, { color }, computedTitleStyle]}>
-            {message.title}
-          </Text>
-          <Text
-            style={[styles.description, { color }, computedDescriptionStyle]}
-          >
-            {message.description}
-          </Text>
-        </View>
-        {message.action && (
-          <TouchableOpacity onPress={() => message.action?.onPress(message)}>
-            <Text
-              style={[styles.actionText, { color }, computedActionTextStyle]}
-            >
-              {message.action.label}
-            </Text>
-          </TouchableOpacity>
-        )}
+      <View style={[styles.textContainer]}>
+        <Text style={[styles.title, { color }, computedTitleStyle]}>
+          {message.title}
+        </Text>
+        <Text style={[styles.description, { color }, computedDescriptionStyle]}>
+          {message.description}
+        </Text>
       </View>
-    </Animated.View>
+      {message.action && (
+        <TouchableOpacity onPress={() => message.action?.onPress(message)}>
+          <Text style={[styles.actionText, { color }, computedActionTextStyle]}>
+            {message.action.label}
+          </Text>
+        </TouchableOpacity>
+      )}
+    </View>
   );
 };

@@ -1,10 +1,11 @@
-import { MessageProvider, openMessage } from "@coolstack/brunch";
+import { closeMessage, MessageProvider, openMessage } from "@coolstack/brunch";
 import { Button, View } from "react-native";
 
 export default function Default() {
   return (
     <MessageProvider
       options={{
+        duration: undefined,
         position: "bottom",
       }}
     >
@@ -23,6 +24,12 @@ export const Demo = () => {
             title: "Hello World",
             severity: "info",
             description: "This is a test",
+            action: {
+              label: "Action",
+              onPress: ({ id }) => {
+                closeMessage(id);
+              },
+            },
           })
         }
       />
@@ -36,7 +43,9 @@ export const Demo = () => {
             description: "This is a test",
             action: {
               label: "Action",
-              onPress: () => {},
+              onPress: ({ id }) => {
+                closeMessage(id);
+              },
             },
           })
         }
@@ -49,6 +58,12 @@ export const Demo = () => {
             title: "Hello World",
             severity: "error",
             description: "This is a test",
+            action: {
+              label: "Action",
+              onPress: ({ id }) => {
+                closeMessage(id);
+              },
+            },
           })
         }
       />
@@ -60,6 +75,12 @@ export const Demo = () => {
             title: "Hello World",
             severity: "success",
             description: "This is a test",
+            action: {
+              label: "Action",
+              onPress: ({ id }) => {
+                closeMessage(id);
+              },
+            },
           })
         }
       />
