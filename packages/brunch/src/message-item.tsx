@@ -1,7 +1,7 @@
 import { useAtomValue } from "jotai";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { optionsAtom } from "./message-store";
+import { closeMessage, optionsAtom } from "./message-store";
 import type { Message, MessageSeverity } from "./types";
 import { extractStyleFromStyleProp } from "./utils";
 
@@ -10,6 +10,8 @@ const MessageItemNativeID = {
   description: "MessageItem.Description",
   action: "MessageItem.Action",
 };
+
+const DEFAULT_CLOSE_LABEL = "Close";
 
 const bgColorBySeverity: Record<MessageSeverity, string> = {
   success: "#059669",
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   actionText: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 700,
   },
 });
@@ -103,6 +105,11 @@ export const MessageItem = ({ message }: MessageItemProps) => {
     [messageActionTextStyle, message.severity],
   );
 
+  const handleCloseAction = useCallback(() => {
+    closeMessage(message.id);
+    message.closeAction?.onPress(message);
+  }, [message]);
+
   return (
     <View
       accessibilityRole="alert"
@@ -130,16 +137,14 @@ export const MessageItem = ({ message }: MessageItemProps) => {
           {message.description}
         </Text>
       </View>
-      {message.action && (
-        <Pressable
-          onPress={() => message.action?.onPress(message)}
-          nativeID={MessageItemNativeID.action}
-        >
-          <Text style={[styles.actionText, { color }, computedActionTextStyle]}>
-            {message.action.label}
-          </Text>
-        </Pressable>
-      )}
+      <Pressable
+        onPress={handleCloseAction}
+        nativeID={MessageItemNativeID.action}
+      >
+        <Text style={[styles.actionText, { color }, computedActionTextStyle]}>
+          {message?.closeAction?.label ?? DEFAULT_CLOSE_LABEL}
+        </Text>
+      </Pressable>
     </View>
   );
 };

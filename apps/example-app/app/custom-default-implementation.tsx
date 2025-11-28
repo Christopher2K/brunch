@@ -44,7 +44,7 @@ export const Demo = () => {
             title: "Hello World",
             severity: "warning",
             description: "This is a test",
-            action: {
+            closeAction: {
               label: "Action",
               onPress: () => {},
             },

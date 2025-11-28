@@ -59,7 +59,7 @@ export type Message = {
   severity: MessageSeverity;
   title: string;
   description: string;
-  action?: MessageAction;
+  closeAction?: MessageAction;
 };
 
 export type NewMessage = Omit<Message, "id">;

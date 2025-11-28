@@ -121,7 +121,7 @@ openMessage({
   severity: "info",
   title: "Update Available",
   description: "A new version is available",
-  action: {
+  closeAction: {
     label: "Update",
     onPress: (message) => {
       console.log("Updating...", message);
@@ -283,7 +283,7 @@ Function to display a new message.
   severity: "info" | "warning" | "error" | "success";
   title: string;
   description: string;
-  action?: {
+  closeAction?: {
     label: string;
     onPress: (message: Message) => void;
   };

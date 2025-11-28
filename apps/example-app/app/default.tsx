@@ -24,12 +24,6 @@ export const Demo = () => {
             title: "Hello World",
             severity: "info",
             description: "This is a test",
-            action: {
-              label: "Action",
-              onPress: ({ id }) => {
-                closeMessage(id);
-              },
-            },
           })
         }
       />
@@ -41,12 +35,6 @@ export const Demo = () => {
             title: "Hello World",
             severity: "warning",
             description: "This is a test",
-            action: {
-              label: "Action",
-              onPress: ({ id }) => {
-                closeMessage(id);
-              },
-            },
           })
         }
       />
@@ -58,12 +46,6 @@ export const Demo = () => {
             title: "Hello World",
             severity: "error",
             description: "This is a test",
-            action: {
-              label: "Action",
-              onPress: ({ id }) => {
-                closeMessage(id);
-              },
-            },
           })
         }
       />
@@ -75,12 +57,6 @@ export const Demo = () => {
             title: "Hello World",
             severity: "success",
             description: "This is a test",
-            action: {
-              label: "Action",
-              onPress: ({ id }) => {
-                closeMessage(id);
-              },
-            },
           })
         }
       />
