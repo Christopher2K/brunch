@@ -10,7 +10,7 @@ Dead simple message system for React Native and Expo (iOS, Android, Web)
 - Support for multiple severity levels (info, warning, error, success)
 - Customizable positioning (top/bottom)
 - Custom styling support with callbacks
-- Optional action buttons
+- Customizable close action
 - Auto-dismiss with configurable duration
 - TypeScript support with full type definitions
 - Allow for custom UI implementation
@@ -112,9 +112,9 @@ openMessage({
 });
 ```
 
-### Adding Actions
+### Adding Close Actions
 
-Messages can include an optional action button:
+Messages include an action button that can be used to close the message and perform an action:
 
 ```tsx
 openMessage({
@@ -125,6 +125,8 @@ openMessage({
     label: "Update",
     onPress: (message) => {
       console.log("Updating...", message);
+      // You can close the message here if needed
+      // closeMessage(message.id);
     },
   },
 });
@@ -187,7 +189,7 @@ type Options = {
   // Style for message descriptions
   messageDescriptionStyle?: CustomStyleProp<TextStyle>;
 
-  // Style for action button text
+  // Style for close action button text
   messageActionTextStyle?: CustomStyleProp<TextStyle>;
 };
 ```

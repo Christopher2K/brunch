@@ -49,16 +49,29 @@ export type Options = {
 
 export type MessageSeverity = "info" | "warning" | "error" | "success";
 
+/**
+ * Action button configuration for a message
+ */
 export type MessageAction = {
+  /** Label text displayed on the action button */
   label: string;
+  /** Callback function invoked when the action button is pressed */
   onPress: (message: Message) => void;
 };
 
+/**
+ * Represents a message displayed to the user
+ */
 export type Message = {
+  /** Unique identifier for the message */
   id: string;
+  /** Severity level that determines the message's visual style */
   severity: MessageSeverity;
+  /** Primary heading text of the message */
   title: string;
+  /** Detailed description or body text of the message */
   description: string;
+  /** Customization action for the close button */
   closeAction?: MessageAction;
 };
 
