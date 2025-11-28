@@ -1,9 +1,15 @@
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { optionsAtom } from "./message-store";
 import type { Message, MessageSeverity } from "./types";
 import { extractStyleFromStyleProp } from "./utils";
+
+const MessageItemNativeID = {
+  title: "MessageItem.Title",
+  description: "MessageItem.Description",
+  action: "MessageItem.Action",
+};
 
 const bgColorBySeverity: Record<MessageSeverity, string> = {
   success: "#059669",
@@ -99,22 +105,40 @@ export const MessageItem = ({ message }: MessageItemProps) => {
 
   return (
     <View
+      accessibilityRole="alert"
       style={[styles.container, { backgroundColor }, computedContainerStyle]}
     >
-      <View style={[styles.textContainer]}>
-        <Text style={[styles.title, { color }, computedTitleStyle]}>
+      <View
+        style={[styles.textContainer]}
+        // @ts-expect-error: Typings missing for this one
+        experimental_accessibilityOrder={[
+          MessageItemNativeID.title,
+          MessageItemNativeID.description,
+          MessageItemNativeID.action,
+        ]}
+      >
+        <Text
+          style={[styles.title, { color }, computedTitleStyle]}
+          nativeID={MessageItemNativeID.title}
+        >
           {message.title}
         </Text>
-        <Text style={[styles.description, { color }, computedDescriptionStyle]}>
+        <Text
+          style={[styles.description, { color }, computedDescriptionStyle]}
+          nativeID={MessageItemNativeID.description}
+        >
           {message.description}
         </Text>
       </View>
       {message.action && (
-        <TouchableOpacity onPress={() => message.action?.onPress(message)}>
+        <Pressable
+          onPress={() => message.action?.onPress(message)}
+          nativeID={MessageItemNativeID.action}
+        >
           <Text style={[styles.actionText, { color }, computedActionTextStyle]}>
             {message.action.label}
           </Text>
-        </TouchableOpacity>
+        </Pressable>
       )}
     </View>
   );

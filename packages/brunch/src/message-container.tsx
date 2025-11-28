@@ -40,9 +40,14 @@ export const MessageContainer = () => {
     return {};
   }, [position]);
 
+  if (messages.length === 0) {
+    return null;
+  }
+
   return (
     <FullWindowOverlay>
       <Animated.View
+        accessibilityLiveRegion="polite"
         style={[styles.container, positionStyle, messagesContainerStyle]}
       >
         {messages.map((message) => (
